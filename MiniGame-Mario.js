@@ -1,7 +1,7 @@
 const personagem = {
     nome: "Mario",
-    moedas: 0,
-    vida: 10
+    moedas: 7,
+    vida: 20
 }
 
 class Mario {
@@ -14,7 +14,7 @@ class Mario {
         personagem.moedas++
             personagem.moedas <= 1
                 ? (console.log("Mário pegou outra moeda"), personagem.moedas++)
-                : this.moedas.mario >= 2 && console.log("Mario esta trapaceando 😡\n");
+                : this.moedas > 2 && console.log("Mario esta trapaceando 😡\n");//esta com mai de 2 moedas
     }
     tomarDano (){
         for (let dano = 1; dano < 2 ; dano++){
@@ -30,8 +30,13 @@ class Mario {
         }
     }
     status(){
-        console.log (`${personagem.nome} esta com ${personagem.moedas} moedas, e esta com ${personagem.vida} de vida\n`);
-        console.log ("\n obrigado por jogar :}");
+        if (personagem.vida <= 2){
+           console.log  ("game over")
+        }else {
+            console.log (`${personagem.nome} esta com ${personagem.moedas} moedas, e esta com ${personagem.vida} de vida\n`);
+            console.log ("\n obrigado por jogar :}");
+        }
+
     }
     main (){
         this.coletarMoeda();
